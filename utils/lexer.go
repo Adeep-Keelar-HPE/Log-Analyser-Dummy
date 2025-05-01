@@ -17,7 +17,6 @@ const (
 	TokenSize      TokenType = "Size"
 	TokenReferrer  TokenType = "Referrer"
 	TokenUserAgent TokenType = "UserAgent"
-	TokenErrorCode TokenType = "ErrorCode"
 )
 
 // Define the Token Struct.
@@ -31,12 +30,11 @@ func Lexer(input string) ([]Token, error) {
 	// Each of the tokens will represent a part that will be used in the Analyser.
 
 	// Use a lean regex pattern to populate the tokens.
-	pattern := `^(\S+) \S+ (\S+) \[([^\]]+)\] "([^"]+)" (\d{3}) (\d+) "([^"]+)" "([^"]+)"(?: errorCode=(\S+))?$`
+	pattern := `^(\S+) \S+ (\S+) \[([^\]]+)\] "([^"]+)" (\d{3}) (\d+) "([^"]+)" "([^"]+)"?$`
 	re := regexp.MustCompile(pattern)
 	matches := re.FindStringSubmatch(input)
-	if len(matches) == 0 {
-		fmt.Println("No matches found")
-		return nil, fmt.Errorf("No matches found")
+	if len(matches) == 0 || len(matches) > 9 {
+		return nil, fmt.Errorf("Invalid number of matches or Empty.")
 	}
 	// Create slice of tokens.
 	tokens := []Token{
@@ -48,10 +46,6 @@ func Lexer(input string) ([]Token, error) {
 		{Type: TokenSize, Value: matches[6]},
 		{Type: TokenReferrer, Value: matches[7]},
 		{Type: TokenUserAgent, Value: matches[8]},
-	}
-	// Optional error code
-	if len(matches) > 9 && matches[9] != "" {
-		tokens = append(tokens, Token{Type: TokenErrorCode, Value: matches[9]})
 	}
 	return tokens, nil
 }

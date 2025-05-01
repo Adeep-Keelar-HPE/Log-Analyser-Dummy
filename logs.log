@@ -1,12 +1,12 @@
-127.0.0.1 - frank [30/Apr/2025:10:15:32 +0000] "GET /login HTTP/1.1" 401 2326 "https://example.com/home" "Mozilla/5.0" errorCode=AUTH401
+127.0.0.1 - frank [30/Apr/2025:10:15:32 +0000] "GET /login HTTP/1.1" 401 2326 "https://example.com/home" "Mozilla/5.0"
 192.168.1.10 - jane [30/Apr/2025:10:15:35 +0000] "POST /checkout HTTP/1.1" 200 1234 "https://example.com/cart" "Mozilla/5.0"
-127.0.0.1 - frank [30/Apr/2025:10:15:36 +0000] "GET /token HTTP/1.1" 403 1456 "https://example.com/login" "Mozilla/5.0" errorCode=AUTH403
+127.0.0.1 - frank [30/Apr/2025:10:15:36 +0000] "GET /token HTTP/1.1" 403 1456 "https://example.com/login" "Mozilla/5.0" 
 10.0.0.5 - joe [30/Apr/2025:10:15:37 +0000] "GET /query HTTP/1.1" 200 800 "https://example.com/dashboard" "Mozilla/5.0"
-192.168.1.10 - jane [30/Apr/2025:10:15:39 +0000] "POST /pay HTTP/1.1" 402 998 "https://example.com/checkout" "Mozilla/5.0" errorCode=PAY402
-127.0.0.1 - frank [30/Apr/2025:10:15:45 +0000] "GET /login HTTP/1.1" 401 2326 "https://example.com/home" "Mozilla/5.0" errorCode=AUTH401
-192.168.1.11 - alice [30/Apr/2025:10:15:50 +0000] "POST /verify HTTP/1.1" 403 1050 "https://example.com/pay" "Mozilla/5.0" errorCode=PAY403
-10.0.0.5 - joe [30/Apr/2025:10:15:55 +0000] "GET /status HTTP/1.1" 500 2100 "https://example.com/health" "curl/7.68.0" errorCode=SRV500
+192.168.1.10 - jane [30/Apr/2025:10:15:39 +0000] "POST /pay HTTP/1.1" 402 998 "https://example.com/checkout" "Mozilla/5.0" 
+127.0.0.1 - frank [30/Apr/2025:10:15:45 +0000] "GET /login HTTP/1.1" 401 2326 "https://example.com/home" "Mozilla/5.0" 
+192.168.1.11 - alice [30/Apr/2025:10:15:50 +0000] "POST /verify HTTP/1.1" 403 1050 "https://example.com/pay" "Mozilla/5.0" 
+10.0.0.5 - joe [30/Apr/2025:10:15:55 +0000] "GET /status HTTP/1.1" 500 2100 "https://example.com/health" "curl/7.68.0" 
 192.168.1.10 - jane [30/Apr/2025:10:16:00 +0000] "GET /home HTTP/1.1" 302 450 "https://example.com" "Mozilla/5.0"
 127.0.0.1 - frank [30/Apr/2025:10:16:03 +0000] "GET /dashboard HTTP/1.1" 200 1350 "https://example.com/login" "Mozilla/5.0"
-192.168.1.11 - alice [30/Apr/2025:10:16:05 +0000] "POST /submit HTTP/1.1" 500 1999 "https://example.com/form" "Mozilla/5.0" errorCode=SRV500
+192.168.1.11 - alice [30/Apr/2025:10:16:05 +0000] "POST /submit HTTP/1.1" 500 1999 "https://example.com/form" "Mozilla/5.0" 
 192.168.1.11 - alice [30/Apr/2025:10:16:08 +0000] "GET /redirect HTTP/1.1" 301 390 "https://example.com/start" "Mozilla/5.0"
