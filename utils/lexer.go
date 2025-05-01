@@ -34,6 +34,7 @@ func Lexer(input string) ([]Token, error) {
 	re := regexp.MustCompile(pattern)
 	matches := re.FindStringSubmatch(input)
 	if len(matches) == 0 || len(matches) > 9 {
+		fmt.Println("Found matches: ", len(matches))
 		return nil, fmt.Errorf("Invalid number of matches or Empty.")
 	}
 	// Create slice of tokens.
